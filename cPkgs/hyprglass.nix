@@ -3,22 +3,30 @@
   mkHyprlandPlugin,
   fetchFromGitHub,
   wf-touch,
+  wayland-scanner,
+  wayland,
+  wayland-protocols,
   nix-update-script,
 }:
 
 mkHyprlandPlugin {
   pluginName = "hyprglass";
-  version = "0.7.0";
+  version = "1.1.1";
 
   src = fetchFromGitHub {
     owner = "hyprnux";
     repo = "hyprglass";
-    rev = "5bc835dcc909cef6980291688143048cf16942b5";
-    hash = "sha256-x/584kY+XXlU/OWKtZAFo89VtowjLXs1DiP9PC0o0Os=";
+    # rev = "5bc835dcc909cef6980291688143048cf16942b5";
+    rev = "v1.1.1";
+    hash = "sha256-cQmVmmdaITss2hO6aidKOtq6GtEe85fmgrPcrn1eIUg=";
   };
+
+  nativeBuildInputs = [ wayland-scanner ];
 
   buildInputs = [
     wf-touch
+    wayland
+    wayland-protocols
   ];
 
   dontUseCmakeConfigure = true;
