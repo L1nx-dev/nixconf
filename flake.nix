@@ -21,16 +21,14 @@
       url = "github:vinceliuice/grub2-themes";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, obsidian-extensions, grub2-themes, hermes-agent }:
+  outputs = { self, nixpkgs, home-manager, zen-browser, obsidian-extensions, grub2-themes }:
     let
       system = "x86_64-linux";
 
       overlays = [ obsidian-extensions.overlays.default ];
-      specialArgs = { inherit zen-browser hermes-agent system; };
+      specialArgs = { inherit zen-browser system; };
 
       pkgs = import nixpkgs {
         inherit system overlays;
@@ -43,7 +41,6 @@
         modules = [
           hostFile
           grub2-themes.nixosModules.default
-          hermes-agent.nixosModules.default
 
           home-manager.nixosModules.home-manager
           {

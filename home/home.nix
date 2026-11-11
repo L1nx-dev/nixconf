@@ -38,6 +38,7 @@ in
     gnome-boxes
     onlyoffice-desktopeditors
     elephant
+    ripgrep
 
     # TERMINAL ANIMATIONS #
     peaclock
