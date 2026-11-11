@@ -1,5 +1,43 @@
 vim.keymap.set({"n", "v"}, "d", '"_d', { desc = "Delete" })
+vim.keymap.set("n", "x", '"_x', { desc = "Delete character" })
+vim.keymap.set("x", "x", '"+d', { desc = "Cut" })
 vim.keymap.set({"n", "v"}, "c", '"_c', { desc = "Swap" })
+
+-- vim.keymap.set("x", "P", '"_dP', { desc = "Paste before without yanking" })
+
+-- vim.keymap.set("x", "p", function()
+--   local mode = vim.fn.mode()
+--
+--   if mode == "V" then
+--     local a = vim.fn.getpos("v")[2]
+--     local b = vim.fn.getpos(".")[2]
+--
+--     local first = math.min(a, b) - 1
+--     local last = math.max(a, b)
+--
+--     local content = vim.fn.getreg("+", 1, true)
+--
+--     vim.api.nvim_buf_set_lines(0, first, last, false, content)
+--
+--     -- Exit visual mode first
+--     vim.cmd("normal! <Esc>")
+--
+--     -- Restore the previous visual selection marks
+--     vim.fn.setpos("'<", { 0, first + 1, 1, 0 })
+--     vim.fn.setpos("'>", { 0, first + #content, 1, 0 })
+--
+--     -- Position cursor on first inserted line
+--     vim.api.nvim_win_set_cursor(0, { first + 1, 0 })
+--   else
+--     local content = vim.fn.getreg("+", 1, true)
+--     local regtype = vim.fn.getregtype("+")
+--
+--     vim.cmd('normal! "_d')
+--     vim.fn.setreg('"', content, regtype)
+--     vim.cmd("normal! P")
+--   end
+-- end, { desc = "Paste without yanking" })
+
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>")
 
