@@ -61,7 +61,6 @@ in
 
     (pkgs.python3.withPackages (ps: [ ps.pygame-ce ]))
     gradle
-    android-studio
     jdk21
 
 

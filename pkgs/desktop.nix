@@ -15,6 +15,7 @@
 
     # SLOP #
     uv
+    android-studio-full
   ];
 
   programs.nix-ld.enable = true;
