@@ -15,6 +15,11 @@
 
     # SLOP #
     uv
+
+
+    # OTHER #
+    bubblewrap
+    llama-cpp-rocm
   ];
 
   programs.nix-ld.enable = true;
